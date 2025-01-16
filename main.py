@@ -10,7 +10,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(
+    api_key=os.getenv('OPENAI_API_KEY'),
+    base_url=os.getenv('OPENAI_API_BASE', 'https://api.openai.com/v1')
+)
 md = MarkItDown(llm_client=client, llm_model="gpt-4o-2024-11-20")
 app = FastAPI()
 
