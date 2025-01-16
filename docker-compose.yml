@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${API_PORT}:8001"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${STREAMLIT_PORT}:8501"
+    environment:
+      - API_HOST=api
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: streamlit run streamlit_app.py
+    depends_on:
+      - api
