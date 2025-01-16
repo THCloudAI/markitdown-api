@@ -17,7 +17,7 @@ The `.python-version` file will automatically switch to Python 3.11 in the proje
 
 1. Clone this repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/THCloudAI/markitdown-api
 cd markitdown-api
 ```
 
