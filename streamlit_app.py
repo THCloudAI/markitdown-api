@@ -6,11 +6,15 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Configure Streamlit
 st.set_page_config(
     page_title="MarkItDown Converter",
     page_icon="📝",
     layout="centered"
 )
+
+# Disable usage statistics
+st.config.set_option('browser.gatherUsageStats', False)
 
 st.title("📝 MarkItDown Converter")
 st.write("Convert various file formats to Markdown")
